@@ -46,10 +46,10 @@ proc/human_roll_mods(var/mob/living/carbon/human/H)
 			BaseMath += pick(-1,0)
 		if(150 to THIRST_LEVEL_THIRSTY)
 			BaseMath += rand(-2,0)
-		if(150 to THIRST_LEVEL_DEHYDRATED)
-			BaseMath += rand(-3,-1)
-		if(THIRST_LEVEL_DEHYDRATED to -INFINITY)
-			BaseMath += rand(-4,-2)
+//		if(150 to THIRST_LEVEL_DEHYDRATED)
+//			BaseMath += rand(-3,-1)
+//		if(THIRST_LEVEL_DEHYDRATED to -INFINITY)
+//			BaseMath += rand(-4,-2)
 	switch(H.happiness)
 		if(MOOD_LEVEL_HAPPY1 to INFINITY)
 			BaseMath += pick(0,1)
@@ -163,14 +163,14 @@ proc/roll3d6(var/mob/living/carbon/human/H, var/base, var/mod, var/hide_roll = F
 			message += "<B>\>65%</B>"
 		if(10)
 			message += "<B>50%</B>"
-		if(9 to 8)
+		if(8 to 9)
 			message += "<B>\<35%</B>"
 		if(7)
 			message += "<B>\<20%</B>"
 		if(6)
 			message += "<B>\<10%</B>"
-		if(5 to -INFINITY)
-			message += "<B>\<5%</B>"
+//		if(5 to -INFINITY)
+//			message += "<B>\<5%</B>"
 	return message
 
 /proc/max_dice(var/dice) //returns the maximum roll of a given dice string. ex: "2d6" returns 12

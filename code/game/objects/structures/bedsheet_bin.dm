@@ -3,6 +3,7 @@ CONTAINS:
 BEDSHEETS
 LINEN BINS
 */
+#define AMOUT 20
 
 /obj/item/weapon/bedsheet
 	name = "bedsheet"
@@ -123,26 +124,26 @@ LINEN BINS
 	throwforce = 1
 	throw_speed = 3
 	throw_range = 7
-	var/amount = 20
+//	var/AMOUT = 20
 	var/list/sheets = list()
 	var/obj/item/hidden = null
 
 
 /obj/structure/bedsheetbin/examine()
 	usr << desc
-	if(amount < 1)
+	if(AMOUT < 1)
 		usr << "There are no bed sheets in the bin."
 		return
-	if(amount == 1)
+	if(AMOUT == 1)
 		usr << "There is one bed sheet in the bin."
 		return
-	usr << "There are [amount] bed sheets in the bin."
+	usr << "There are [AMOUT] bed sheets in the bin."
 
 
 /obj/structure/bedsheetbin/update_icon()
-	switch(amount)
+	switch(AMOUT)
 		if(0)				icon_state = "linenbin-empty"
-		if(1 to amount / 2)	icon_state = "linenbin-half"
+		if(1 to AMOUT / 2)	icon_state = "linenbin-half"
 		else				icon_state = "linenbin-full"
 
 
@@ -151,9 +152,9 @@ LINEN BINS
 		user.drop_item()
 		I.loc = src
 		sheets.Add(I)
-		amount++
+//		AMOUT++
 		user << "<span class='notice'>You put [I] in [src].</span>"
-	else if(amount && !hidden && I.w_class < 4)	//make sure there's sheets to hide it among, make sure nothing else is hidden in there.
+	else if(AMOUT && !hidden && I.w_class < 4)	//make sure there's sheets to hide it among, make sure nothing else is hidden in there.
 		user.drop_item()
 		I.loc = src
 		hidden = I
@@ -166,8 +167,8 @@ LINEN BINS
 
 
 /obj/structure/bedsheetbin/attack_hand(mob/user as mob)
-	if(amount >= 1)
-		amount--
+	if(AMOUT >= 1)
+//		AMOUT--
 
 		var/obj/item/weapon/bedsheet/B
 		if(sheets.len > 0)
@@ -190,8 +191,8 @@ LINEN BINS
 	add_fingerprint(user)
 
 /obj/structure/bedsheetbin/attack_tk(mob/user as mob)
-	if(amount >= 1)
-		amount--
+	if(AMOUT >= 1)
+//		AMOUT--
 
 		var/obj/item/weapon/bedsheet/B
 		if(sheets.len > 0)

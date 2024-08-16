@@ -59,7 +59,7 @@ var/religion_name = null
 	name += pick("Baron","Dreamer","Child","Bum","Amuser","Randy","Terrorist","Enoch","Consyte","Mortician","Whore",
 	"Witch","Lodge","Graga","Rat","Beast","Demon","Chimera","God","Inquisitor","Soup","Bees","Prophet","Bishop","Sheriff",
 	"Lovers","Night","Grue","Darkness","Fortress","Corpse","Torch","Underground","Ambush","Invader","Vampire","Night","Heretic",
-	"Church","Icon","Dream","Flesh","Weakness","Revelation","Order","Saint","Web","Past","Present","Future","Victim","Liar","Plotters","Nightmare"
+	"Church","Icon","Dream","Flesh","Weakness","Revelation","Order","Saint","Web","Past","Present","Future","Victim","Liar","Plotters","Nightmare",
 	"Cold","Caves","Ghost")
 
 	world.name = name

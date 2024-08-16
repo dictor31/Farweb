@@ -5,6 +5,9 @@ var/global/thanatiWords = list()
 #define BE_ASSISTANT 1
 #define RETURN_TO_LOBBY 2
 
+#define GOOD_AGE_MINIMUM 25
+#define GOOD_AGE_MAXIMUM 60
+
 /datum/controller/occupations
 		//List of all jobs
 	var/list/occupations = list()
@@ -207,28 +210,28 @@ var/global/thanatiWords = list()
 				var/list/weightedCandidates = list()
 
 				// Different head positions have different good ages.
-				var/good_age_minimal = 25
-				var/good_age_maximal = 60
+				//var/good_age_minimal = GOOD_AGE_MINIMUM
+				//var/good_age_maximal = GOOD_AGE_MAXIMUM
 				if(command_position == "Baron")
-					good_age_minimal = 25
-					good_age_maximal = 70 // Old geezer captains ftw
+				//	GOOD_AGE_MINIMUM = GOOD_AGE_MINIMUM
+				//	GOOD_AGE_MAXIMUM = 70 // Old geezer captains ftw
 
 				for(var/mob/V in candidates)
 					// Log-out during round-start? What a bad boy, no head position for you!
 					if(!V.client) continue
 					var/age = V.client.prefs.age
 					switch(age)
-						if(good_age_minimal - 10 to good_age_minimal)
+						if(GOOD_AGE_MINIMUM - 10 to GOOD_AGE_MINIMUM)
 							weightedCandidates[V] = 3 // Still a bit young.
-						if(good_age_minimal to good_age_minimal + 10)
+						if(GOOD_AGE_MINIMUM to GOOD_AGE_MINIMUM + 10)
 							weightedCandidates[V] = 6 // Better.
-						if(good_age_minimal + 10 to good_age_maximal - 10)
+						if(GOOD_AGE_MINIMUM + 10 to GOOD_AGE_MAXIMUM - 10)
 							weightedCandidates[V] = 10 // Great.
-						if(good_age_maximal - 10 to good_age_maximal)
+						if(GOOD_AGE_MAXIMUM - 10 to GOOD_AGE_MAXIMUM)
 							weightedCandidates[V] = 6 // Still good.
-						if(good_age_maximal to good_age_maximal + 10)
+						if(GOOD_AGE_MAXIMUM to GOOD_AGE_MAXIMUM + 10)
 							weightedCandidates[V] = 6 // Bit old, don't you think?
-						if(good_age_maximal to good_age_maximal + 50)
+						if(GOOD_AGE_MAXIMUM to GOOD_AGE_MAXIMUM + 50)
 							weightedCandidates[V] = 3 // Geezer.
 						else
 							// If there's ABSOLUTELY NOBODY ELSE
